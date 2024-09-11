@@ -665,7 +665,7 @@ def Init():
         port = int(sys.argv[2])
     # end if
 
-    hostip = "127.0.0.1"
+    hostip = "0.0.0.0"
 
     ip = "0.0.0.0"
     print(local.buffer)
