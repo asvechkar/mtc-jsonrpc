@@ -665,6 +665,7 @@ def Init():
     hostip = "127.0.0.1"
 
     ip = "0.0.0.0"
+    print(local.buffer)
     sslKeyPath = local.buffer["myWorkDir"] + "ssl"
     crtPath = sslKeyPath + ".crt"
     keyPath = sslKeyPath + ".key"
