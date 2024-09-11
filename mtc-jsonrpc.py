@@ -30,6 +30,7 @@ from mytoncore import *
 
 local = MyPyClass(__file__)
 ton = MyTonCore(local)
+ip = None
 
 
 class IP:
