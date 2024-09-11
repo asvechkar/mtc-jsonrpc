@@ -631,7 +631,7 @@ def SetWebPassword():
     # end if
 
     runArgs = ["bash", "/usr/src/mtc-jsonrpc/setupProxy.sh", str(allowedIP), str(port), local.buffer["my_work_dir"]]
-    exitCode = RunAsRoot(runArgs)
+    exitCode = run_as_root(runArgs)
 
     print("Configuration complete.")
     print("Now you can go to https://tonadmin.org")
