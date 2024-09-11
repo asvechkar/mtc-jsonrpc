@@ -360,7 +360,7 @@ def wl():
     global ip
     ip.CheckAccess()
     data = dict()
-    wallets = ton.GetWallets()
+    wallets = ton.GetWalletsNameList()
     for wallet in wallets:
         account = ton.GetAccount(wallet.addrB64)
         buff = dict()
