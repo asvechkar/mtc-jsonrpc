@@ -169,7 +169,7 @@ def login(api, passwd, code=None):
 def logout():
     global ip
     ip.DestroyToken()
-    return 1;
+    return 1
 
 
 # end define
@@ -288,6 +288,7 @@ def status():
     data["startElection"] = startElection
     data["endElection"] = endElection
     data["startNextElection"] = startNextElection
+    print(data)
     return data
 
 
@@ -307,6 +308,7 @@ def getSystemLoad():
     statistics = ton.GetSettings("statistics")
     data["disksLoadAvg"] = ton.GetStatistics("disksLoadAvg", statistics)
     data["disksLoadPercentAvg"] = ton.GetStatistics("disksLoadPercentAvg", statistics)
+    print(data)
     return data
 
 
