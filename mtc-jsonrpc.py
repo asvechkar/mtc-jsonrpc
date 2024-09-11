@@ -22,6 +22,9 @@ from jsonrpc import JSONRPCResponseManager, dispatcher
 from jsonrpc.jsonrpc import JSONRPCRequest
 from jsonrpc.exceptions import JSONRPCDispatchException
 
+from mypylib.mypylib import run_as_root, check_git_update, get_load_avg, get_service_status
+from mytoncore.functions import Elections
+
 path.append("/usr/src/mytonctrl/")
 from mytoncore import *
 
@@ -205,10 +208,10 @@ def status():
     config34 = ton.GetConfig34()
     config36 = ton.GetConfig36()
     tpsAvg = ton.GetTpsAvg()
-    loadavg = GetLoadAvg()
+    loadavg = get_load_avg()
     netLoadAvg = ton.GetNetLoadAvg()
     adnlAddr = ton.GetAdnlAddr()
-    mytoncoreStatus = GetServiceStatus("mytoncore")
+    mytoncoreStatus = get_service_status("mytoncore")
     rootWorkchainEnabledTime_int = ton.GetRootWorkchainEnabledTime()
     validatorsElectedFor = config15["validatorsElectedFor"]
     electionsStartBefore = config15["electionsStartBefore"]
@@ -417,7 +420,7 @@ def el():
 def ve():
     global ip
     ip.CheckAccess()
-    Elections(ton)
+    Elections(local, ton)
     return True
 
 
@@ -490,8 +493,8 @@ def GetTrans(trans):
 def CheckUpdates():
     gitPath1 = "/usr/src/mytonctrl/"
     gitPath2 = "/usr/src/mtc-jsonrpc/"
-    result1 = CheckGitUpdate(gitPath1)
-    result2 = CheckGitUpdate(gitPath2)
+    result1 = check_git_update(gitPath1)
+    result2 = check_git_update(gitPath2)
     result = [result1, result2]
     return result
 
